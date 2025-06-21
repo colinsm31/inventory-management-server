@@ -1,1 +1,0 @@
-SELECT "user".name, post.id, post.name AS title, post.content, post.user_id FROM "user" JOIN post ON post.user_id = 3;
