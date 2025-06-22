@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/', getAllCustomers);
 
 // GET specific user with :id
-router.get('/id/:id', getCustomerByID);
+router.get('/:id', getCustomerByID);
 
 // POST new user
 router.post('/', createCustomer);

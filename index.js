@@ -29,3 +29,15 @@ app.use('/users', userRoutes);
 
 import customerRoutes from './routes/customerRoutes.js';
 app.use('/customers', customerRoutes);
+
+import locationRoutes from './routes/locationRoutes.js';
+app.use('/locations', locationRoutes);
+
+import categoryRoutes from './routes/categoryRoutes.js';
+app.use('/categories', categoryRoutes);
+
+import productRoutes from './routes/productRoutes.js';
+app.use('/products', productRoutes);
+
+import inventoryRoutes from './routes/inventoryRoutes.js';
+app.use('/inventory', inventoryRoutes);

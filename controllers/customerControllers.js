@@ -1,5 +1,4 @@
 import { client } from "../index.js";
-import bcrypt from 'bcrypt';
 
 export const getAllCustomers = async (req, res) => {
   try {
