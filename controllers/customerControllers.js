@@ -12,7 +12,6 @@ export const getAllCustomers = async (req, res) => {
 
 export const getCustomerByID = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
   try {
     const result = await client.query(`SELECT * FROM customer WHERE id = $1`, [id]);
     if (result.rows.length === 0) {

@@ -1,6 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import { Client } from 'pg';
+import { logger } from './middlewares/logger.js';
+import { errorHandler } from './middlewares/errorHandler.js';
 
 export const client = new Client({
   host: 'localhost',
@@ -13,12 +16,15 @@ export const client = new Client({
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.use(bodyParser.json());
+app.use(cors());
+app.use(logger);
+
+client.connect();
+
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });
-
-client.connect();
-app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send('Inventory Manager API is running');
@@ -41,3 +47,6 @@ app.use('/products', productRoutes);
 
 import inventoryRoutes from './routes/inventoryRoutes.js';
 app.use('/inventory', inventoryRoutes);
+
+
+app.use(errorHandler);

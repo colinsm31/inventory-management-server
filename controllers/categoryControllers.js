@@ -16,7 +16,6 @@ export const getAllCategories = async (req, res) => {
 
 export const getCategoryByID = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
   try {
     const result = await client.query(`SELECT * FROM "category" WHERE id = $1`, [id]);
     if (result.rows.length === 0) {
