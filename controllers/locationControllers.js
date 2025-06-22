@@ -7,7 +7,10 @@ export const getAllLocations = async (req, res) => {
     res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 }
 
@@ -22,7 +25,10 @@ export const getLocationByID = async (req, res) => {
     res.status(200).json(result.rows[0]);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error')
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 }
 
@@ -37,7 +43,10 @@ export const getLocationByCity = async (req, res) => {
     res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error')
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 }
 
@@ -52,7 +61,10 @@ export const getLocationByState = async (req, res) => {
     res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error')
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 }
 
@@ -90,7 +102,10 @@ export const createLocation = async (req, res) => {
 
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 };
 
@@ -110,6 +125,9 @@ export const deleteLocation = async (req, res) => {
     });
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server Error');
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 };

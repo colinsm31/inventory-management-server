@@ -6,9 +6,13 @@ export const getAllCategories = async (req, res) => {
     res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 }
+
 
 export const getCategoryByID = async (req, res) => {
   const id = req.params.id;
@@ -21,7 +25,10 @@ export const getCategoryByID = async (req, res) => {
     res.status(200).json(result.rows[0]);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error')
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 }
 
@@ -59,7 +66,10 @@ export const createCategory = async (req, res) => {
 
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 };
 
@@ -79,6 +89,9 @@ export const deleteCategory = async (req, res) => {
     });
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server Error');
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 };

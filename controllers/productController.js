@@ -6,7 +6,10 @@ export const getAllProducts = async (req, res) => {
     res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 }
 
@@ -17,7 +20,10 @@ export const getProductByID = async (req, res) => {
     res.status(200).json(result.rows[0]);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 }
 
@@ -28,7 +34,10 @@ export const getProductByCategory = async (req, res) => {
     res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    res.status(500).json({ 
+      error: "Server error.",
+      message: error.message
+    });
   }
 }
 
@@ -95,6 +104,9 @@ export const createProduct = async (req, res) => {
 
   } catch (error) {
     console.error("Create Product Error:", error.message);
-    res.status(500).json({ error: "Server error while creating product(s)." });
+    res.status(500).json({ 
+      error: "Server error while creating product(s).",
+      message: error.message
+    });
   }
 };
