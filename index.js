@@ -5,13 +5,7 @@ import { Client } from 'pg';
 import { logger } from './middlewares/logger.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 
-export const client = new Client({
-  host: 'localhost',
-  user: 'crmeyer',
-  port: 5432,
-  password: 'Kikirex!10!31!',
-  database: 'inventory-manager-tester'
-});
+
 
 const app = express();
 const PORT = process.env.PORT || 8080;
